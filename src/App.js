@@ -13,7 +13,8 @@ function App() {
 
   useEffect(() => {
     const getProfilePictureAPI = async (id) => {
-    const res = await fetch(`https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`)
+    const res = await fetch(`
+    https://img.youtube.com/vi/OloflbzNeMs/maxresdefault.jpg`)
     const bf = await res.arrayBuffer()
     setImg(`data:image/jpeg;base64,` + arrayBufferToBase64(bf))
         // const url = `${baseUrl}/yt`
