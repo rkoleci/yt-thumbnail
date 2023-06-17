@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react'
-
+import { useState, useEffect } from 'react'
 
 function arrayBufferToBase64(buffer) {
     var binary = '';
@@ -11,38 +9,26 @@ function arrayBufferToBase64(buffer) {
 };
 
 function App() {
+  const [img, setImg] = useState('')
+
   useEffect(() => {
     const getProfilePictureAPI = async (id) => {
     const res = await fetch(`https://img.youtube.com/vi/${id}/maxresdefault.jpg`)
     const bf = await res.arrayBuffer()
-    console.log(111, arrayBufferToBase64(bf))
-    return `data:image/jpeg;base64,` + arrayBufferToBase64(bf)
-    // const url = `${baseUrl}/yt`
-    // const data = await fetch(url, {
-    //     method: 'post',
-    //     body: JSON.stringify({
-    //         id: username
-    //     })
-    // }).then(res => res.json())
-} 
-getProfilePictureAPI('')
+    setImg(`data:image/jpeg;base64,` + arrayBufferToBase64(bf))
+        // const url = `${baseUrl}/yt`
+        // const data = await fetch(url, {
+        //     method: 'post',
+        //     body: JSON.stringify({
+        //         id: username
+        //     })
+        // }).then(res => res.json())
+    } 
+  getProfilePictureAPI('rqUaaEsFW_M')
   }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <img src={img} alt="logo" width={100} height={100} />
     </div>
   );
 }
