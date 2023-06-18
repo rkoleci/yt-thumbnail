@@ -10,6 +10,7 @@ function App() {
   const onSearch = () => {
     const value = inputRef.current.value
     const[str, id] = value.split('v=')
+    console.log(str)
     setId(id)
   }
 
