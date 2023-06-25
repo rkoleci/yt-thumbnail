@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { useScreenshot } from "usescreenshot-react";
 import { useEffect } from "react";
-import { ReactComponent as DownloadIcon } from "./download-icon.svg";
 
 const appName = "SnapYT";
 
@@ -9,8 +8,9 @@ function App() {
   const inputRef = useRef();
   const [id, setId] = useState({ value: undefined });
   const [loading, setLoading] = useState(false);
-  const { image, takeScreenshot, isLoading, isError } = useScreenshot();
+  const { image, takeScreenshot } = useScreenshot();
   const ref = useRef(null);
+  console.log(loading)
 
   useEffect(() => {
     if (image) window.location.href = image;
@@ -52,12 +52,12 @@ function App() {
     <div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">{appName}</a>
+          <a href="/" className="btn btn-ghost normal-case text-xl">{appName}</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>EN</a>
+              <a href="/">EN</a>
             </li>
           </ul>
         </div>
