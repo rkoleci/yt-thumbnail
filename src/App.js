@@ -76,7 +76,7 @@ function App() {
             ref={inputRef}
             type="text"
             placeholder="Paste link.."
-            className="input input-bordered input-warning w-full mb-4"
+            className="input input-bordered input-warning w-full mb-4 outline-0"
             onKeyDown={onKeyDown}
           />
           <button className="btn w-full mb-6" onClick={onSearch}>
